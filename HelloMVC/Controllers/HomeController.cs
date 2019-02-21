@@ -27,6 +27,16 @@ namespace HelloMVC.Controllers
             cache["customers"] = customers;
         }
 
+        public PartialViewResult _Basket()
+        {
+            BasketViewModel model = new BasketViewModel();
+
+            model.basketCount = 5;
+            model.basketTotal = "$199";
+
+            return PartialView(model);
+        }
+        
         [HttpGet]
         public ActionResult Index()
         {
@@ -104,11 +114,18 @@ namespace HelloMVC.Controllers
         [HttpPost]
         public ActionResult AddCustomer(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(customer);
+            }
+
             customer.customerId = Guid.NewGuid().ToString();
             customers.Add(customer);
             SaveCache();
             return RedirectToAction("CustomerList");
         }
+
+
 
         public ActionResult DeleteCustomer(string id)
         {

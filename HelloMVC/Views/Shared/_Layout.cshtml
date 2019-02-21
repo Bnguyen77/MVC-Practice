@@ -22,8 +22,10 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("List of Customer", "CustomerList", "Home")</li>
                     <li>@Html.ActionLink("Add Customer", "AddCustomer", "Home")</li>
-
                 </ul>
+                @{ 
+                    Html.RenderAction("_Basket", "Home");
+                }
             </div>
         </div>
     </div>
@@ -33,6 +35,7 @@
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
