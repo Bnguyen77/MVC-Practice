@@ -1,0 +1,40 @@
+﻿@model IEnumerable<HelloMVC.Models.Customer>
+
+@{
+    ViewBag.Title = "Customer List";
+}
+
+<h2>List of Customers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddCustomer")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customerPhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerPhoneNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.customerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.customerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.customerId })
+            </td>
+        </tr>
+    }
+
+</table>
