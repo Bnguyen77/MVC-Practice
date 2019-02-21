@@ -30,9 +30,9 @@
                 @Html.DisplayFor(modelItem => item.customerPhoneNumber)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.customerId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.customerId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.customerId })
+                @Html.ActionLink("Edit", "EditCustomer", new { id = item.customerId }) |
+                @Html.ActionLink("View", "ViewCustomer", new { id = item.customerId }) |
+                @Html.ActionLink("Delete", "DeleteCustomer", new { id = item.customerId })
             </td>
         </tr>
     }
